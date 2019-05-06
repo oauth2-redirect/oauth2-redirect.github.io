@@ -2,11 +2,21 @@
 <html lang="en-US">
 <head>
 <script>
-    'use strict';
-    function run () {
-        window.opener.postMessage("OK", "*")
-        //setInterval(window.close, 50)
-    }
+'use strict';
+function run () {
+    window.opener.postMessage({
+        hash: window.location.hash,
+        host: window.location.host,
+        hostname: window.location.hostname,
+        href: window.location.hostname,
+        origin: window.location.origin,
+        pathname: window.location.pathname,
+        port: window.location.port,
+        protocol: window.location.protocol,
+        search: window.location.search
+    }, "*")
+    setInterval(window.close, 50)
+}
 </script>
 </head>
 <body onload="run()">
